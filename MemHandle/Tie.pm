@@ -14,16 +14,15 @@ use 5.000;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 
 # Preloaded methods go here.
 sub TIEHANDLE {
-    my( $class, $mh ) = @_;
+    my( $class, $mem ) = @_;
     $class = ref( $class ) || $class || 'MemHandle::Tie';
-    my $self = {mem => "",
-		mh => $mh,
-		pos => 0};
+    my $self = {mem => $mem,
+		pos => length($mem)};
 
     bless( $self, $class );
 }
@@ -114,11 +113,7 @@ sub PRINTF {
 
 sub CLOSE {
     my $self = shift;
-    $self->{mh}->doclose();
-}
-
-sub DESTROY {
-    my $self = shift;
+    untie $self;
     $self;
 }
 

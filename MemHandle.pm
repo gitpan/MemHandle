@@ -17,7 +17,7 @@ use 5.000;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 
 # Preloaded methods go here.
@@ -26,11 +26,7 @@ sub new {
     $class = ref( $class ) || $class || 'MemHandle';
     my $fh = gensym;
 
-    ${*$fh} = tie *$fh, 'MemHandle::Tie', $fh;
-
-    if ( defined $mem ) {
-	${*$fh}->mem( $mem );
-    }
+    ${*$fh} = tie *$fh, 'MemHandle::Tie', $mem;
 
     bless $fh, $class;
 }
@@ -48,12 +44,6 @@ sub tell {
 sub mem {
     my $fh = shift;
     ${*$fh}->mem( @_ );
-}
-
-sub doclose {
-    my $fh = shift;
-    untie *$fh;
-    undef ${*$fh};
 }
 
 # Autoload methods go after =cut, and are processed by the autosplit program.

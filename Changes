@@ -20,3 +20,8 @@ Revision history for Perl extension MemHandle.
 0.05  Thu Jul  8 17:39:56 PDT 1999
         - Put SYNOPSIS section back in Tie.pm,
 	  albeit empty.
+0.06  Thu Aug  5 11:54:27 PDT 1999
+        - updated test.pl
+	- got rid of circular reference so that
+	  memory can be garbage collected without
+	  having to close the mh.
