@@ -1,0 +1,6 @@
+Changes
+MANIFEST
+Makefile.PL
+MemHandle.pm
+test.pl
+MemHandle/Tie.pm
