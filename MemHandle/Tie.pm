@@ -14,7 +14,7 @@ use 5.000;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 
 # Preloaded methods go here.
@@ -170,6 +170,8 @@ __END__
 =head1 NAME
 
 MemHandle::Tie - The package which ties the MemHandle to memory.
+
+=head1 SYNOPSIS
 
 =head1 DESCRIPTION
 

@@ -17,7 +17,7 @@ use 5.000;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 
 # Preloaded methods go here.

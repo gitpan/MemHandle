@@ -17,3 +17,6 @@ Revision history for Perl extension MemHandle.
 	  parameter to set the memory.
 	- MemHandle::new can take an optional
 	  parameter to set the memory.
+0.05  Thu Jul  8 17:39:56 PDT 1999
+        - Put SYNOPSIS section back in Tie.pm,
+	  albeit empty.
