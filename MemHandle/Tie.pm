@@ -5,6 +5,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
 use IO::Seekable;
 
 require Exporter;
+use 5.000;
 
 @ISA = qw(Exporter);
 # Items to export into callers namespace by default. Note: do not export
@@ -13,7 +14,7 @@ require Exporter;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Preloaded methods go here.
@@ -31,7 +32,7 @@ sub WRITE {
     my( $self, $buf, $len, $offset ) = @_;
 
     #$self->{mem} .= substr( $buf, $len, $offset );
-    substr( $self->{mem}, $self->{pos}, $len, substr( $buf, $len, $offset ) );
+    substr( $self->{mem}, $self->{pos}, $len ) = substr( $buf, $len, $offset );
     $self->{pos} += $len;
 
     $len;
@@ -53,7 +54,7 @@ sub READLINE {
 	my $line;
 
 	if ( $i != $[ - 1 ) {
-	    $i++; # can't go off the deep end or $i would be #[ - 1
+	    $i++; # can't go off the deep end or $i would be $[ - 1
 	    $line = substr( $self->{mem}, $self->{pos}, $i - $self->{pos} );
 	    $self->{pos} = $i
 	}
@@ -74,7 +75,7 @@ sub READ {
     if ( $len > $leftlen ) {
 	$len = $leftlen;
     }
-    substr( $MemHandle::Tie::buf, $offset, $len, substr( $self->{mem}, $self->{pos}, $len ));
+    substr( $MemHandle::Tie::buf, $offset, $len ) = substr( $self->{mem}, $self->{pos}, $len );
     $self->{pos} += $len;
     $len;
 }
@@ -94,7 +95,7 @@ sub PRINT {
 
     my $lines = join('', @_);
     my $len = length( $lines );
-    substr( $self->{mem}, $self->{pos}, $len, $lines );
+    substr( $self->{mem}, $self->{pos}, $len ) = $lines;
     $self->{pos} += $len;
 
     1;
@@ -105,7 +106,7 @@ sub PRINTF {
 
     my $str = sprintf( shift, @_ );
     my $len = length( $str );
-    substr( $self->{mem}, $self->{pos}, $len, $str );
+    substr( $self->{mem}, $self->{pos}, $len ) = $str;
     $self->{pos} += $len;
 
     1;

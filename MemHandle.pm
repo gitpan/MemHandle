@@ -8,6 +8,7 @@ use Symbol;
 use MemHandle::Tie;
 
 require Exporter;
+use 5.000;
 
 @ISA = qw(IO::Handle IO::Seekable Exporter);
 # Items to export into callers namespace by default. Note: do not export
@@ -16,7 +17,7 @@ require Exporter;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # Preloaded methods go here.
