@@ -14,7 +14,7 @@ use 5.000;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 
 # Preloaded methods go here.
@@ -150,6 +150,17 @@ sub TELL {
     $self->{pos};
 }
 
+sub mem {
+    my( $self, $mem ) = @_;
+
+    if ( defined $mem ) {
+	$self->{mem} = $mem;
+	$self->{pos} = length( $mem );
+    }
+
+    $self->{mem};
+}
+
 # Autoload methods go after =cut, and are processed by the autosplit program.
 
 1;
@@ -160,11 +171,11 @@ __END__
 
 MemHandle::Tie - The package which ties the MemHandle to memory.
 
-=head1 SYNOPSIS
-
-    This should not be used except by MemHandle.
-
 =head1 DESCRIPTION
+
+This should not be used except by MemHandle.  It provides functions
+for tie-ing a FILEHANDLE.  See L<perltie/"Tying FileHandles"> for
+more detail.
 
 =head1 AUTHOR
 
@@ -172,8 +183,9 @@ MemHandle::Tie - The package which ties the MemHandle to memory.
 
 =head1 SEE ALSO
 
-perl(1).
-perlfunc(1).
-perldoc MemHandle
+L<perl>.
+L<perlfunc>.
+L<perltie/"Tying FileHandles">.
+perldoc MemHandle.
 
 =cut

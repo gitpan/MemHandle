@@ -11,3 +11,9 @@ Revision history for Perl extension MemHandle.
         - provided mem() routine for accessing
 	  the memory, rather than having to rely
 	  on file operations.
+0.04  Wed Jul  7 14:39:52 PDT 1999
+        - Updated Documentation
+	- MemHandle::Tie::mem can take an optional
+	  parameter to set the memory.
+	- MemHandle::new can take an optional
+	  parameter to set the memory.

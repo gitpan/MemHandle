@@ -1,5 +1,7 @@
 Changes
 MANIFEST
+README
+README.html
 Makefile.PL
 MemHandle.pm
 test.pl
