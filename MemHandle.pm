@@ -17,7 +17,7 @@ use 5.000;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 # Preloaded methods go here.
@@ -39,6 +39,11 @@ sub seek {
 sub tell {
     my $fh = shift;
     ${*$fh}->TELL( @_ );
+}
+
+sub mem {
+    my $fh = shift;
+    ${*$fh}->{mem};
 }
 
 sub doclose {

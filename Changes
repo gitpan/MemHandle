@@ -7,3 +7,7 @@ Revision history for Perl extension MemHandle.
 	  so perl versions earlier than 5.005
 	  can use it.
 	- use 5.000;
+0.03  Thu Jul  1 17:16:07 PDT 1999
+        - provided mem() routine for accessing
+	  the memory, rather than having to rely
+	  on file operations.
