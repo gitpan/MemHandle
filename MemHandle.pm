@@ -17,7 +17,7 @@ use 5.000;
 @EXPORT = qw(
 	
 );
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 
 # Preloaded methods go here.
@@ -55,6 +55,8 @@ __END__
 =head1 NAME
 
 MemHandle - supply memory-based FILEHANDLE methods
+
+B<DEPRECATED> - Please use L<IO::Scalar> from CPAN package L<IO::stringy> instead!
 
 =head1 SYNOPSIS
 
@@ -149,7 +151,7 @@ the constants which are available from IO::Seekable or POSIX:
 
 =item tell()
 
-Returns the current position of the mem-file, similiar to the way tell
+Returns the current position of the mem-file, similar to the way tell
 would.  (See L<perlfunc>).
 
 =item mem( [mem] )
@@ -160,6 +162,12 @@ write more to it, you append the string).  Returns the current value
 of memory.
 
 =back
+
+=head1 NOTES
+
+I don't have much time to contribute to this.  If you'd like to
+contribute, please fork https://github.com/scr/cpan and send me a pull
+request.
 
 =head1 AUTHOR
 
